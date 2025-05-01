@@ -44,17 +44,17 @@ export default function Navbar() {
           <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/about">
+          <Button color="inherit" component={Link} to="/notices">
             Notices
           </Button>
-          <Button color="inherit" component={Link} to="/facilities">
+          <Button color="inherit" component={Link} to="/faculty">
             Faculty
           </Button>
-          <Button color="inherit" component={Link} to="/faculty">
+          <Button color="inherit" component={Link} to="/events">
             Events
           </Button>
           <Button color="inherit" component={Link} to="/contact">
-            Routines
+            Contact
           </Button>
         </Box>
 
