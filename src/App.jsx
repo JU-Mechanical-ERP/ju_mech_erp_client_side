@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { use, useEffect } from "react";
 import { setLogout } from "./state";
 import { setLogin } from "./state";
+import FacultyPage from "./pages/FacultyPage";
 
 //* Create a Custom Theme
 const theme = createTheme({
@@ -107,6 +108,7 @@ function App() {
           />
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/notices" element={<NoticePage />} />
+          <Route path="/faculty" element={<FacultyPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
