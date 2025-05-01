@@ -47,52 +47,66 @@ const NoticePage = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4, mt: 8 }}>
-      <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Notices
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
-          Stay updated with the latest announcements and important information
-        </Typography>
+    <Box>
+      {/* Maroon Header Strip */}
+      <Box 
+        sx={{ 
+          width: '100%', 
+          bgcolor: '#b70924', 
+          py: 2, 
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: 1,
+          boxShadow: 3
+        }}
+      >
+        <Container maxWidth="lg">
+          <Typography variant="h4" component="h1" sx={{ color: 'white', fontWeight: 500 }}>
+            Notices
+          </Typography>
+        </Container>
       </Box>
 
-      <Grid container spacing={3}>
-        {notices.map((notice) => (
-          <Grid item xs={12} key={notice.id}>
-            <Card
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-                position: 'relative',
-                '&:before': {
-                  content: '""',
-                  position: 'absolute',
-                  left: 0,
-                  top: 0,
-                  bottom: 0,
-                  width: '4px',
-                  backgroundColor: getPriorityColor(notice.priority),
-                },
-              }}
-            >
-              <CardContent>
-                <Typography variant="h6" component="h2" gutterBottom>
-                  {notice.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" gutterBottom>
-                  {new Date(notice.date).toLocaleDateString()}
-                </Typography>
-                <Typography variant="body1">
-                  {notice.content}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+      {/* Main Content */}
+      <Container maxWidth="lg" sx={{ py: 4, mt: 12 }}>
+        <Grid container spacing={3}>
+          {notices.map((notice) => (
+            <Grid item xs={12} key={notice.id}>
+              <Card
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  position: 'relative',
+                  '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                    width: '4px',
+                    backgroundColor: getPriorityColor(notice.priority),
+                  },
+                }}
+              >
+                <CardContent>
+                  <Typography variant="h6" component="h2" gutterBottom>
+                    {notice.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>
+                    {new Date(notice.date).toLocaleDateString()}
+                  </Typography>
+                  <Typography variant="body1">
+                    {notice.content}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
